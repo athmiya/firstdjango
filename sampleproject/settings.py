@@ -25,8 +25,7 @@ SECRET_KEY = 'edmehjm3*u8cg3)8h(_#jq%cf1tk))c&5kgp9cs+e&uw-r(%a('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['intense-waters-44539.herokuapp.com']
 
 # Application definition
 
@@ -81,6 +80,10 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
 #DATABASES = {
 #    'default':{
 #        'ENGINE':'django.db.backends.oracle',
